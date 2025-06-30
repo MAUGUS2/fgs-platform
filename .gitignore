@@ -66,13 +66,10 @@ temp/
 # Prisma
 prisma/migrations/dev.db*
 
-# Claude Code local cache (personal)
-.claude/cache/
-.claude/temp/
-.claude/sessions/
-
-# Claude Code personal configs, guides and learning materials
+# Claude Code development configs and personal materials
+.claude/
 CLAUDE.md
 ROADMAP.md
 PROGRESS.md
+ROADMAP.md
 learning/

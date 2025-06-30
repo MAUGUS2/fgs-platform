@@ -1,0 +1,360 @@
+# FGS Platform - Claude Code Configuration
+
+> **Local overrides for FGS Platform specific workflow and requirements**
+
+## Project-Specific Commands
+
+### Development Workflow
+```bash
+# Core project commands (pnpm-based)
+pnpm dev                    # Start all apps in development mode
+pnpm build                  # Build all packages and apps
+pnpm lint                   # Lint all packages 
+pnpm type-check            # TypeScript validation across monorepo
+pnpm test                  # Run all tests
+
+# Specific app commands
+pnpm dev:marketing         # Start marketing app only
+pnpm dev:dashboard         # Start dashboard app only
+pnpm build:marketing       # Build marketing app
+pnpm build:dashboard       # Build dashboard app
+
+# Workspace utilities
+pnpm validate-workspace    # Validate monorepo structure
+```
+
+## FGS Platform Workflow
+
+### 🧠 Intelligent Command-Driven Development
+
+**Philosophy**: Use global commands as **intelligence layer** to make data-driven decisions about our workflow, not just manual references.
+
+#### **Daily Intelligence Workflow**
+```markdown
+1. **Morning Intelligence Gathering**
+   `/daily-standup` → Analyze yesterday's work, today's priorities, blockers
+   `/dev-init` → Verify project state, sync PROGRESS.md with reality
+   `/gh-issues-browse` → Smart navigation through current sprint issues
+
+2. **Decision Making**
+   - Use command outputs to **detect inconsistencies** (PROGRESS.md vs reality)
+   - **Prioritize tasks** based on sprint status and dependencies
+   - **Identify blockers** before they become problems
+
+3. **Execution with Validation**
+   - Start work based on command recommendations
+   - Use `/dev-checkpoint` during development for continuous validation
+   - Quality gates informed by command analysis
+```
+
+#### **Intelligent Feature Development**
+```markdown
+1. **Smart Feature Initiation**
+   `/gh-feature-start <issue>` → Automatic branch creation following MAUGUS standards
+   - Reads issue labels to determine branch type (feat/fix/docs)
+   - Updates GitHub issue status automatically
+   - Creates conventional commit patterns
+
+2. **Development Intelligence**
+   `/analyze-project` → Detect structural issues during development
+   `/dev-checkpoint` → Validate progress against acceptance criteria
+   Quality gates → Informed by command analysis
+
+3. **Intelligent Completion**
+   `/gh-feature-done` → Systematic feature completion
+   `/gh-pr-create` → PR creation with proper templates and references
+```
+
+#### **Command-Driven Decision Framework**
+```markdown
+## When to Use Commands for Decisions
+
+### Before Starting Work
+- `/daily-standup` → Should I continue current issue or switch?
+- `/dev-init` → Is my environment ready? Are files out of sync?
+- `/gh-issues-browse` → What's the real priority based on GitHub status?
+
+### During Development
+- `/dev-checkpoint` → Am I on track? Should I adjust approach?
+- `/analyze-project` → Are my changes breaking project structure?
+
+### When Uncertain
+- Command outputs provide **objective data** for subjective decisions
+- PROGRESS.md conflicts with reality? Commands reveal truth
+- Unclear next steps? Commands suggest logical priorities
+```
+
+### Issue-Driven Development Process (Enhanced)
+1. **Intelligent State Check**: `/daily-standup` + `/dev-init` (not just manual file reading)
+2. **Smart Issue Selection**: `/gh-issues-browse` with priority analysis
+3. **Automated Branch Creation**: `/gh-feature-start <issue>` (MAUGUS standards)
+4. **Intelligent Progress Tracking**: Commands validate PROGRESS.md accuracy
+5. **Command-Informed Development**: Use `/dev-checkpoint` for continuous validation
+6. **Data-Driven Updates**: Commands detect when PROGRESS.md needs updates
+7. **Systematic Completion**: `/gh-feature-done` ensures nothing is missed
+
+### Quality Gates (MANDATORY before commits)
+```bash
+# Run these in sequence - ALL must pass
+pnpm lint           # ESLint validation
+pnpm type-check     # TypeScript strict mode
+pnpm test           # Unit and integration tests
+pnpm build          # Production build verification
+```
+
+### 📊 Intelligent Progress Tracking Rules
+
+#### **Command-Validated Updates**
+- **Daily Validation**: Use `/dev-init` to verify PROGRESS.md accuracy against reality
+- **Smart Completion**: `/gh-feature-done` automatically moves issues to archive
+- **Data-Driven Metrics**: Commands provide real sprint velocity vs estimates
+- **Proactive Blockers**: `/daily-standup` identifies blockers before they impact timeline
+- **Automated Notes**: Commands suggest what implementation notes to document
+- **Continuous Learning**: `/analyze-project` reveals workflow improvement opportunities
+
+#### **Adaptive Workflow Learning**
+```markdown
+## How Commands Improve Our Workflow
+
+### Learning Signals
+- Command outputs reveal workflow inefficiencies
+- PROGRESS.md vs reality gaps highlight process issues
+- Command recommendations show better practices
+- Repeated manual tasks suggest missing automation
+
+### Workflow Evolution
+1. **Weekly Review**: What did commands reveal about our process?
+2. **Gap Analysis**: Where did manual tracking fail vs command data?
+3. **Process Refinement**: Update CLAUDE.md based on command insights
+4. **Automation Opportunities**: Which manual steps should become commands?
+
+### Success Metrics
+- Reduced PROGRESS.md vs reality discrepancies
+- Faster issue completion through better prioritization
+- Fewer blockers through proactive command analysis
+- Higher code quality through systematic command usage
+```
+
+#### **Command Intelligence Integration Points**
+```markdown
+## Key Integration Moments
+
+### When PROGRESS.md Seems Wrong
+Run `/dev-init` → Compare with PROGRESS.md → Update based on reality
+
+### When Unsure What to Work On
+Run `/gh-issues-browse` → Analyze priority signals → Make data-driven choice
+
+### When Feeling Stuck
+Run `/daily-standup` → Review blockers section → Take suggested actions
+
+### When Sprint Seems Off-Track
+Run `/analyze-project` → Check structural health → Adjust approach
+```
+
+## Git Workflow (FGS Platform)
+
+### Branch Strategy
+```bash
+# Current active branches
+main                                    # Production releases
+develop                                 # Integration branch
+feature/001-monorepo-structure         # ✅ Completed
+feature/002-development-tooling        # 🔄 In Progress
+
+# Branch creation pattern
+git checkout develop
+git pull origin develop
+git checkout -b feature/<issue>-<brief-description>
+```
+
+### Commit Standards (Enhanced for FGS)
+```
+<type>(<scope>): <description>
+
+<detailed explanation of what and why>
+
+Implements Issue #<number>
+Updates PROGRESS.md: <issue> now <percentage>% complete
+
+<optional footer: breaking changes, closed issues>
+```
+
+**Example:**
+```
+feat(ui): add PropertyCard component with glass morphism
+
+Implements responsive property card with hover animations.
+Includes property data display and image gallery.
+Uses Tailwind design tokens for consistent styling.
+
+Implements Issue #009
+Updates PROGRESS.md: Issue #009 now 60% complete
+
+Closes #009
+```
+
+### FGS-Specific Commit Types
+- `feat(ui)` - UI components and design system
+- `feat(3d)` - React Three Fiber 3D features  
+- `feat(api)` - tRPC API endpoints
+- `feat(db)` - Database schema and migrations
+- `config` - Monorepo configuration changes
+- `docs` - Documentation updates
+
+## Architecture-Specific Guidelines
+
+### TypeScript Standards
+- **Strict mode**: Always enabled across all packages
+- **Path mapping**: Use `@fgs/*` imports for shared packages
+- **Type definitions**: Export types from `packages/api` for reuse
+- **Component props**: Always define explicit prop interfaces
+
+### React/Next.js (FGS Platform)
+- **App Router**: Next.js 14 App Router for all applications
+- **Server Components**: Default to Server Components, use Client only when needed
+- **3D Components**: Always provide fallback for React Three Fiber components
+- **Performance**: Monitor bundle size and Core Web Vitals
+
+### 3D Development Guidelines
+- **Progressive Enhancement**: Always detect device capabilities
+- **Fallback Required**: Static hero image for low-performance devices
+- **Performance Budget**: 60fps target on mid-range devices
+- **Memory Management**: Proper cleanup of 3D resources
+
+### Styling Standards
+- **Tailwind**: Use design tokens from `packages/tailwind-config`
+- **Responsive**: Mobile-first approach for all components
+- **Glass Morphism**: Use consistent backdrop-blur values
+- **Animation**: Prefer CSS animations over JavaScript when possible
+
+## Project Structure Awareness
+
+### Monorepo Organization
+```
+fgs-platform/
+├── apps/
+│   ├── marketing/          # Next.js marketing site
+│   └── dashboard/          # Next.js dashboard app
+├── packages/
+│   ├── ui/                 # Shared component library  
+│   ├── api/                # tRPC API definitions
+│   ├── db/                 # Prisma schema and utilities
+│   ├── eslint-config/      # Shared ESLint configuration
+│   ├── tailwind-config/    # Shared Tailwind preset
+│   └── tsconfig/           # TypeScript base configurations
+```
+
+### Key Files to Monitor
+- `PROGRESS.md` - **ALWAYS** update when working on issues
+- `ROADMAP.md` - Reference for sprint planning and issue context
+- `turbo.json` - Build pipeline configuration
+- `pnpm-workspace.yaml` - Workspace definitions
+
+## Development Environment
+
+### Required Tools
+- **Node.js**: 18+ (specified in package.json engines)
+- **pnpm**: 8+ (package manager)
+- **Git**: With GitFlow understanding
+
+### Optional but Recommended
+- **VS Code**: With TypeScript, Tailwind, and Prettier extensions
+- **Git GUI**: For visual branch management
+
+## Performance Targets (FGS Platform)
+
+### Web Vitals Goals
+- **LCP**: < 1.8 seconds (even with 3D content)
+- **FID**: < 100 milliseconds  
+- **CLS**: < 0.1
+- **Lighthouse**: 95+ score target
+
+### Bundle Size Monitoring
+- **Marketing app**: Monitor main bundle size
+- **3D components**: Lazy load and code split
+- **Shared packages**: Keep minimal and focused
+
+## Testing Strategy
+
+### Test Organization
+- **Unit tests**: For utility functions and pure components
+- **Integration tests**: For API endpoints and data flows
+- **E2E tests**: For critical user workflows (when implemented)
+- **Visual tests**: For 3D components and responsive design
+
+### Coverage Requirements
+- **Target**: 80%+ test coverage
+- **Critical paths**: 100% coverage required
+- **UI components**: Snapshot and interaction tests
+
+## Sprint-Specific Notes
+
+### Sprint 0 Focus (Current)
+- Foundation setup and development tooling
+- Complete Issues #001-#008 before creating more
+- Learn and adapt approach for future sprints
+
+### Sprint 1 Planning (Future)
+- 3D hero implementation with progressive enhancement
+- Performance optimization focus
+- Mobile-first responsive design
+
+## Troubleshooting
+
+### Common Issues
+1. **pnpm install fails**: Check Node.js version (18+ required)
+2. **TypeScript errors**: Run `pnpm type-check` to see all errors
+3. **3D performance**: Check device capabilities and fallback rendering
+4. **Build failures**: Verify all packages build independently
+
+### Debug Commands
+```bash
+# Workspace validation
+pnpm validate-workspace
+
+# Dependency analysis  
+pnpm why <package-name>
+
+# Build analysis
+pnpm build --verbose
+
+# Clean and rebuild
+pnpm clean && pnpm install && pnpm build
+```
+
+---
+
+## Important Reminders
+
+### 🧠 Always Follow (Intelligence-First)
+1. **Start with Commands**: Use `/daily-standup` + `/dev-init` before making decisions
+2. **Validate with Commands**: Run `/dev-checkpoint` during development
+3. **Command-Informed Updates**: Let commands guide PROGRESS.md updates
+4. **Data-Driven Priorities**: Use `/gh-issues-browse` for task selection
+5. **Systematic Completion**: Use `/gh-feature-done` for issue closure
+6. **Quality Gates**: Commands + manual gates for complete validation
+7. **Check 3D Compatibility**: Always provide fallbacks for 3D features
+8. **Conventional Commits**: Use `/gh-commit-push` for proper formatting
+
+### 🚫 Never Do (Anti-Intelligence Patterns)
+- **Manual decisions** when commands can provide data
+- **Skip command validation** during development
+- **Trust PROGRESS.md** without `/dev-init` verification
+- **Direct commits** to `main` or `develop` (use `/gh-feature-start`)
+- **Manual branch creation** (use `/gh-feature-start` for MAUGUS standards)
+- **Skip quality gates** (lint, type-check, test, build)
+- **3D without fallbacks** (progressive enhancement required)
+- **Break builds** for others
+
+### 🎯 Command-First Mindset
+- **When uncertain**: Run a command to gather intelligence
+- **Before acting**: Let commands inform the decision
+- **During work**: Use commands for continuous validation
+- **After completion**: Commands ensure systematic closure
+
+---
+
+**Remember**: This is a learning-focused project. Document decisions, share knowledge, and build something impressive! 🚀
+
+*This file extends the global ~/.claude/CLAUDE.md with FGS Platform specific requirements*
