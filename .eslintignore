@@ -1,0 +1,10 @@
+node_modules
+.next
+.turbo
+dist
+build
+coverage
+.DS_Store
+*.js
+!.eslintrc.js
+!packages/*/index.js
