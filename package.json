@@ -35,13 +35,27 @@
     "dev:marketing": "pnpm --filter marketing dev",
     "dev:dashboard": "pnpm --filter dashboard dev",
     "build:marketing": "pnpm --filter marketing build",
-    "build:dashboard": "pnpm --filter dashboard build"
+    "build:dashboard": "pnpm --filter dashboard build",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@turbo/gen": "^1.13.2",
-    "turbo": "^1.13.2",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.5",
-    "eslint": "^8.57.0"
+    "turbo": "^1.13.2",
+    "typescript": "^5.4.5"
   }
 }
