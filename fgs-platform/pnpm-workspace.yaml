@@ -1,0 +1,9 @@
+packages:
+  # Apps - Final applications
+  - 'apps/*'
+  
+  # Packages - Shared libraries
+  - 'packages/*'
+  
+  # Exclude patterns (if needed in the future)
+  # - '!**/test/**'

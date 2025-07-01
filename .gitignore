@@ -71,7 +71,8 @@ prisma/migrations/dev.db*
 .claude/temp/
 .claude/sessions/
 
-# Keep Claude Code project configs
-# CLAUDE.md - project configuration (keep)
-# ROADMAP.md - public roadmap (keep)
-# PROGRESS.md - project tracking (keep)
+# Claude Code personal configs, guides and learning materials
+CLAUDE.md
+ROADMAP.md
+PROGRESS.md
+learning/
